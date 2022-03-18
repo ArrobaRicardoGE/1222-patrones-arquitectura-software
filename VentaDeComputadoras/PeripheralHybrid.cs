@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete product used by PeripheralComponentCreator. Its derived classes are selected
+    // depending on the argument passed to the factory method. 
     class PeripheralHybrid : Component
     {
         protected string Connector { get; set; }

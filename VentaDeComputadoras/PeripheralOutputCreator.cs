@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete creator. Handles the creation of output peripherals. 
     class PeripheralOutputCreator : Creator
     {
         public PeripheralOutputCreator()

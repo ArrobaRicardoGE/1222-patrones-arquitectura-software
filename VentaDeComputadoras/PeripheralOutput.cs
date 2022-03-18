@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete product used by PeripheralOutputCreator. Its derived classes are selected
+    // depending on the argument passed to the factory method. 
     class PeripheralOutput : Component
     {
         protected int[] ValidPorts { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete creator. Handles the creation of input peripherals. 
     class PeripheralInputCreator : Creator
     {
         public PeripheralInputCreator()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete creator. Handles the creation of hybrid peripherals and central units. 
     class ComponentCreator : Creator
     {
         public ComponentCreator()

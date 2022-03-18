@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Concrete product used by PeripheralComponentCreator.
     class CentralUnit : Component
     {
         public CentralUnit()

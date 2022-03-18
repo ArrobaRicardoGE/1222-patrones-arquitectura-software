@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Base product class. There was no need to make it abstract, but it has a virtual method
+    // which is overriden by the derived classes. 
     class Component
     {
         protected string Manufacturer { get; set; }

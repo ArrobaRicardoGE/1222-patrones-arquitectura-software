@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerSale
 {
+    // Client class. Uses the creators to configure the computer.
     class PersonalComputer
     {
         private List<Component> Parts;
@@ -57,12 +58,21 @@ namespace ComputerSale
             }
             return (centralUnit && inputCount > 0 && outputCount > 0); 
         }
-        public string DescribeComponents()
+        public string DescribeComponents(bool idx = false)
         {
             string ans = "";
+            int i = 1;
             foreach (Component x in Parts)
-                ans += x.Describe() + "\n********************\n"; 
+            {
+                if (idx) ans += (i++).ToString() + ". ";
+                ans += x.Describe() + "\n********************\n";
+            }
             return ans; 
+        }
+
+        public void RemoveComponent(int i)
+        {
+            Parts.RemoveAt(i); 
         }
     }
 }

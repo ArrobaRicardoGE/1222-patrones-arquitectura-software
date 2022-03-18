@@ -76,7 +76,22 @@ namespace ComputerSale
                 }
                 else if (ans == "4")
                 {
-
+                    RefreshScreen();
+                    WriteTitle("Select component to remove");
+                    Console.WriteLine(pc.DescribeComponents(true /* idx */)); 
+                    ans = Console.ReadLine();
+                    try
+                    {
+                        pc.RemoveComponent(int.Parse(ans) - 1);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Invalid option: " + ans + ". Try again.");
+                        System.Threading.Thread.Sleep(2000);
+                        continue;
+                    }
+                    Console.WriteLine("Product #" + ans + " removed!");
+                    System.Threading.Thread.Sleep(2000);
                 }
                 else if (ans == "5")
                 {
@@ -85,7 +100,7 @@ namespace ComputerSale
                     {
                         WriteTitle("Error!");
                         Console.WriteLine("You didn't select enough peripherals.\nYou must add at least one output peripheral and one input peripheral.");
-                        System.Threading.Thread.Sleep(2000);
+                        System.Threading.Thread.Sleep(4000);
                         continue; 
                     }
                     break; 
@@ -124,8 +139,6 @@ namespace ComputerSale
             if (val < 0 || val >= creator.AvailableTypes.Length)
             {
                 return ""; 
-                Console.WriteLine("Peripheral not on list");
-                System.Threading.Thread.Sleep(2000);
 
             }
             return creator.AvailableTypes[val];
