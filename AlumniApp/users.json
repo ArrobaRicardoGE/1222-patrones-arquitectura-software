@@ -1,0 +1,11 @@
+{
+  "Data":[
+
+    {
+      "Username": "test",
+      "UserID": 1,
+      "Password": "pa55w0rd",
+      "Type": "student"
+    }
+  ]
+}
