@@ -18,9 +18,12 @@ namespace AlumniApp
             ClientSize = new Size(width, height);
 
             // Add fields
-            var panel = new FlowLayoutPanel();
-            panel.FlowDirection = FlowDirection.TopDown;
-            panel.Dock = DockStyle.Fill;
+            var panel = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                Dock = DockStyle.Fill,
+                AutoSize = true,
+            };
 
             username = new Field("Username");
             password = new Field("Password", true);
@@ -28,6 +31,7 @@ namespace AlumniApp
             {
                 Text = "Login",
                 Dock = DockStyle.Fill,
+                Size = new Size(40, 40),
             };
             login.Click += new EventHandler(TryLogin);
             AcceptButton = login; 
@@ -35,8 +39,9 @@ namespace AlumniApp
             SuspendLayout();
             panel.Controls.Add(username);
             panel.Controls.Add(password);
+            panel.WrapContents = false; 
             panel.Controls.Add(login);
-            panel.Anchor = AnchorStyles.None; panel.Anchor = AnchorStyles.None;
+            panel.Anchor = AnchorStyles.None;
             panel.Location = new Point(width / 2 - panel.Width / 2, height / 2 - panel.Height / 2);
 
             Controls.Add(panel);
@@ -71,7 +76,22 @@ namespace AlumniApp
                 MessageBox.Show("Incorrect password. Try again.");
                 return;
             }
-            MessageBox.Show("Login!");
+            FormDirector director = new();
+            FormBuilder builder = null ;
+            
+            if (user.Type == "student") builder = new StudentFormBuilder(user);
+            if (user.Type == "teacher") builder = new TeacherFormBuilder(user);
+            if (user.Type == "supervisor") builder = new SupervisorFormBuilder(user);
+
+            director.Construct(builder);
+            builder.GetResult().Show();
+            Hide(); 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
 
     }

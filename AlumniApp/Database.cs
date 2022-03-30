@@ -36,7 +36,8 @@ namespace AlumniApp
         public int StudentID { get; set; }
         public int TeacherID { get; set; }
         public string Subject { get; set; }
-        public int Term { get; set; }
-        public float Value { get; set; }
+        public float Term1 { get; set; }
+        public float Term2 { get; set; }
+        public float Term3 { get; set; }
     }
 }

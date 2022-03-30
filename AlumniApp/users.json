@@ -2,10 +2,22 @@
   "Data":[
 
     {
-      "Username": "test",
+      "Username": "student1",
       "UserID": 1,
       "Password": "pa55w0rd",
       "Type": "student"
+    },
+    {
+      "Username": "teacher1",
+      "UserID": 2,
+      "Password": "123",
+      "Type": "teacher"
+    },
+    {
+      "Username": "supervisor1",
+      "UserID": 3,
+      "Password": "123",
+      "Type": "supervisor"
     }
   ]
 }
