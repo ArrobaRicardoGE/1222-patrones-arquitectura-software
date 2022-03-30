@@ -17,14 +17,14 @@ namespace AlumniApp
         {
             foreach (var x in ds.Users.Data)
                 if (x.Username == username) return x;
-            throw new Exception($"User ${username} not found"); 
+            throw new Exception($"User {username} not found"); 
         }
 
         public override Info GetInfoByUserID(int user_id)
         {
             foreach(var x in ds.Info.Data)
                 if (x.UserID == user_id) return x;
-            throw new Exception($"Information for user ${user_id} not found");
+            throw new Exception($"Information for user {user_id} not found");
         }
 
         public override List<Grade> GetGradesByStudentID(int student_id)
