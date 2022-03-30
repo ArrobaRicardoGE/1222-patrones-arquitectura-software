@@ -27,7 +27,8 @@ namespace AlumniApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello world"); 
+            Database db = new JSONDataSourceAdapter(); 
+            MessageBox.Show(db.GetUserByUsername("test").Password); 
         }
 
     }

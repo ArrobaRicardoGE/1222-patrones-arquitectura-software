@@ -5,14 +5,14 @@
       "TeacherID": 2,
       "Subject": "Matemáticas",
       "Term": 1,
-      "Grade": 9.2
+      "Value": 9.2
     },
     {
       "StudentID": 1,
       "TeacherID": 2,
       "Subject": "Matemáticas",
       "Term": 2,
-      "Grade": 10
+      "Value": 10
     }
   ]
 }
