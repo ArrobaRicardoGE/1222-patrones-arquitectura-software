@@ -2,10 +2,24 @@
   "Data": [
     {
       "UserID": 1,
-      "Name": "Test User",
+      "Name": "Patrick Mahomes",
       "Career": "IIA",
       "BirthYear": 2000,
-      "Hometown": "AGS"
+      "Hometown": "Tyles, Texas"
+    },
+    {
+      "UserID": 2,
+      "Name": "Bo Jackson",
+      "Career": "",
+      "BirthYear": 1967,
+      "Hometown": "Bessemer, Alabama"
+    },
+    {
+      "UserID": 3,
+      "Name": "Roger Godell",
+      "Career": "",
+      "BirthYear": 1959,
+      "Hometown": "Jamestown, New York"
     }
   ]
 }

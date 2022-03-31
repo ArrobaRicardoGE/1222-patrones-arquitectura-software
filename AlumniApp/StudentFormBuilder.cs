@@ -86,7 +86,7 @@ namespace AlumniApp
 
             Label title = new();
             title.Dock = DockStyle.Fill;
-            title.Text = "Student information";
+            title.Text = "Student's information";
 
             TableLayoutPanel panel = new();
             panel.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));

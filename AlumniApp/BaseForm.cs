@@ -17,8 +17,8 @@ namespace AlumniApp
             ClientSize = new Size(width, height);
             _layout = new TableLayoutPanel();
             _layout.RowStyles.Add(new RowStyle(SizeType.Percent, 35f));
-            _layout.RowStyles.Add(new RowStyle(SizeType.Percent, 45f));
-            _layout.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));
+            _layout.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
+            _layout.RowStyles.Add(new RowStyle(SizeType.Percent, 15f));
             _layout.Dock = DockStyle.Fill; 
             Controls.Add(_layout); 
         }
