@@ -10,6 +10,11 @@ namespace AlumniApp
 {
     class TXTGradesExporter : GradesExporter
     {
+        /// <summary>
+        /// Exports the fiven DataGridView to a text document. It will create it in the provided path. 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="filename"></param>
         public override void SaveToFile(DataGridView data, string filename)
         {
             using(TextWriter tw = new StreamWriter($"{filename}.txt"))

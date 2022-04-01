@@ -8,7 +8,12 @@ using System.Text.Json;
 
 namespace AlumniApp
 {
-    // Singleton
+    /// <summary>
+    /// Encapsulates all the logic to get the information from the JSON files.
+    /// It is a Singleton to avoid reading the same file multiple times. It will 
+    /// also be useful in the future if updating data is enabled, to avoid writing 
+    /// to the file from several sources at the same time. 
+    /// </summary>
     class JSONDataSource
     {
         private static JSONDataSource _instance = null;
@@ -17,6 +22,7 @@ namespace AlumniApp
         public JSONInfoList Info { get; set; }
         public JSONGradeList Grades { get; set; }
         protected JSONDataSource() {
+            // Files must be placed in the root directory of the application
             Users = JsonSerializer.Deserialize<JSONUserList>(ReadJSON(@"..\..\..\users.json"));
             Info = JsonSerializer.Deserialize<JSONInfoList>(ReadJSON(@"..\..\..\users_information.json"));
             Grades = JsonSerializer.Deserialize<JSONGradeList>(ReadJSON(@"..\..\..\grades.json"));
@@ -42,6 +48,8 @@ namespace AlumniApp
             return reader.ReadToEnd();
         }
     }
+
+    // Below are the classes used to parse our JSON into C# objects. 
 
     class JSONUserList
     {

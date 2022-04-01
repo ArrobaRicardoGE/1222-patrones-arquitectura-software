@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Base abstraction for Form Builders. Each concrete builder must implement this interface.
+    /// </summary>
     abstract class FormBuilder
     {
         protected BaseForm _form = new();

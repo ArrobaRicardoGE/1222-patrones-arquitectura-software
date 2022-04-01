@@ -8,6 +8,9 @@ using System.Drawing;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Form builder for the users labeled as supervisors
+    /// </summary>
     class SupervisorFormBuilder : FormBuilder
     {
         public SupervisorFormBuilder(User user) : base(user) { }
@@ -15,10 +18,7 @@ namespace AlumniApp
         {
             _form.Text = "AlumniApp: Supervisor"; 
         }
-        public override void BuildGrades()
-        {
-            return; 
-        }
+        public override void BuildGrades() { }
 
         public override void BuildInfo()
         {
@@ -58,9 +58,6 @@ namespace AlumniApp
             _form._layout.Controls.Add(panel, 0, 0);
         }
 
-        public override void BuildDownloadGrades()
-        {
-            return;
-        }
+        public override void BuildDownloadGrades() { }
     }
 }

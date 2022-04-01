@@ -7,6 +7,9 @@ using System.Configuration;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Main class of the grades exporter factory. For simplicity, its only method is static
+    /// </summary>
     class GradesExporterCreator
     {
         public static GradesExporter FactoryMethod()

@@ -8,7 +8,10 @@ using System.Drawing;
 
 namespace AlumniApp
 {
-
+    /// <summary>
+    /// Base class for the UI of students, teachers and supervisors. 
+    /// Used by the builder to tie the possible final products. 
+    /// </summary>
     class BaseForm : Form
     {
         public int width = 500, height = 500;

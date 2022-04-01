@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Director that coordinates the creation of Forms. 
+    /// </summary>
     class FormDirector
     {
         public void Construct(FormBuilder builder)

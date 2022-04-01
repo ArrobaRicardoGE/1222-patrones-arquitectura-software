@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Adapter for the JSON data source. Implements the methods defined in Database. 
+    /// </summary>
     class JSONDataSourceAdapter : Database
     {
         private JSONDataSource ds; 

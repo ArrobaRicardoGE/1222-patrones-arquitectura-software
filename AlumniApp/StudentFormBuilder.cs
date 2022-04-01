@@ -9,6 +9,9 @@ using System.Configuration;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Form builder for the users labeled as students
+    /// </summary>
     class StudentFormBuilder : FormBuilder
     {
         private DataGridView _grades;

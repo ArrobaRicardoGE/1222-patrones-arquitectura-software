@@ -8,6 +8,9 @@ using System.Drawing;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Form builder for the users labeled as teachers
+    /// </summary>
     class TeacherFormBuilder : FormBuilder
     {
         public TeacherFormBuilder(User user) : base(user) { }

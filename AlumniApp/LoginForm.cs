@@ -8,6 +8,9 @@ using System.Drawing;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Login form. It is also the client for the builder
+    /// </summary>
     class LoginForm : Form
     {
         private Field username, password;

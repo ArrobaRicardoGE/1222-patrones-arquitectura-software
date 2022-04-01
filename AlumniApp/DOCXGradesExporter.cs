@@ -10,12 +10,16 @@ namespace AlumniApp
 {
     class DOCXGradesExporter : GradesExporter
     {
+        /// <summary>
+        /// Exports the fiven DataGridView to a Word document. It will create it in the provided path. 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="filename"></param>
         public override void SaveToFile(DataGridView data, string filename)
         {
             object oMissing = System.Reflection.Missing.Value;
-            object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+            object oEndOfDoc = "\\endofdoc"; 
 
-            //Start Word and create a new document.
             Microsoft.Office.Interop.Word._Application oWord;
             Microsoft.Office.Interop.Word._Document oDoc;
             oWord = new Microsoft.Office.Interop.Word.Application();
@@ -23,8 +27,6 @@ namespace AlumniApp
             oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
             ref oMissing, ref oMissing);
 
-            //Insert a 3 x 5 table, fill it with data, and make the first row
-            //bold and italic.
             Microsoft.Office.Interop.Word.Table oTable;
             Microsoft.Office.Interop.Word.Range wrdRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
             oTable = oDoc.Tables.Add(wrdRng, data.Rows.Count + 1, data.Columns.Count, ref oMissing, ref oMissing);
