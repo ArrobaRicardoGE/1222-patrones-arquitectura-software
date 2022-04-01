@@ -28,7 +28,7 @@ namespace AlumniApp
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Harlow Solid Italic", 32),
                 Padding = new Padding(0, 50, 0, 0),
-                Height = 100,
+                Height = 120,
             };
 
             var panel = new FlowLayoutPanel

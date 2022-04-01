@@ -14,7 +14,7 @@ namespace AlumniApp
     abstract class GradesExporter
     {
         /// <summary>
-        /// Exports the fiven DataGridView to a file. It will create it in the provided path. 
+        /// Exports the given DataGridView to a file. It will create it in the provided path. 
         /// </summary>
         /// <param name="data"></param>
         /// <param name="filename"></param>

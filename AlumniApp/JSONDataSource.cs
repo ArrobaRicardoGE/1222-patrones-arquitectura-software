@@ -41,7 +41,7 @@ namespace AlumniApp
             }
         }
         
-        private string ReadJSON(string filename)
+        private static string ReadJSON(string filename)
         {
             using var stream = File.OpenRead(filename);
             using var reader = new StreamReader(stream);
