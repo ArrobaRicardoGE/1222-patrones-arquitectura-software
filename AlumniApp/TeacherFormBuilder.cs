@@ -33,6 +33,7 @@ namespace AlumniApp
             data.Columns[3].Name = "Term 2";
             data.Columns[4].Name = "Term 3";
             data.Columns[5].Name = "Average";
+            data.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             foreach (var grade in grades)
             {
@@ -41,9 +42,13 @@ namespace AlumniApp
                 string[] r = { student_info.Name, grade.Subject, grade.Term1.ToString(), grade.Term2.ToString(), grade.Term3.ToString(), avg.ToString("0.00") };
                 data.Rows.Add(r);
             }
-            Label title = new();
-            title.Dock = DockStyle.Fill;
-            title.Text = "Grades";
+            Label title = new()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Grades",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12),
+            };
 
             TableLayoutPanel panel = new();
             panel.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));
@@ -74,10 +79,15 @@ namespace AlumniApp
             data.Rows.Add(r0);
             data.Rows.Add(r1);
             data.Rows.Add(r2);
+            data.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            Label title = new();
-            title.Dock = DockStyle.Fill;
-            title.Text = "Teacher's information";
+            Label title = new()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Teacher's Infomation",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12),
+            };
 
             TableLayoutPanel panel = new();
             panel.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));

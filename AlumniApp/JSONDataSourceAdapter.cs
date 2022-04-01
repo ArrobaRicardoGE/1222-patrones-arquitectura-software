@@ -50,7 +50,7 @@ namespace AlumniApp
 
             res.Sort(delegate (Grade g1, Grade g2)
             {
-                if (g1.Subject == g2.Subject) return 0;
+                if (g1.Subject == g2.Subject) return g1.StudentID.CompareTo(g2.StudentID);
                 else return g1.Subject.CompareTo(g2.Subject);
             });
 

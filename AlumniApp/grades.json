@@ -15,6 +15,62 @@
       "Term1": 6.6,
       "Term2": 8.9,
       "Term3": 10
+    },
+    {
+      "StudentID": 1,
+      "TeacherID": 5,
+      "Subject": "Philosophy",
+      "Term1": 6.6,
+      "Term2": 7.9,
+      "Term3": 8.1
+    },
+    {
+      "StudentID": 1,
+      "TeacherID": 2,
+      "Subject": "Computer Science 101",
+      "Term1": 10,
+      "Term2": 9.9,
+      "Term3": 10
+    },
+    {
+      "StudentID": 1,
+      "TeacherID": 2,
+      "Subject": "Data Structures 1",
+      "Term1": 9.6,
+      "Term2": 8.7,
+      "Term3": 10
+    },
+    {
+      "StudentID": 4,
+      "TeacherID": 5,
+      "Subject": "Literature",
+      "Term1": 6.9,
+      "Term2": 8.3,
+      "Term3": 9
+    },
+    {
+      "StudentID": 4,
+      "TeacherID": 5,
+      "Subject": "Architecture",
+      "Term1": 9.1,
+      "Term2": 8.8,
+      "Term3": 9.9
+    },
+    {
+      "StudentID": 4,
+      "TeacherID": 2,
+      "Subject": "Geometry",
+      "Term1": 10,
+      "Term2": 4.3,
+      "Term3": 7
+    },
+    {
+      "StudentID": 4,
+      "TeacherID": 5,
+      "Subject": "Philosophy",
+      "Term1": 6.6,
+      "Term2": 7.9,
+      "Term3": 8.1
     }
   ]
 }

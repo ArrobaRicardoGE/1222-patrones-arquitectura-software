@@ -1,5 +1,5 @@
 {
-  "Data":[
+  "Data": [
 
     {
       "Username": "student1",
@@ -17,6 +17,24 @@
       "Username": "supervisor1",
       "UserID": 3,
       "Password": "123",
+      "Type": "supervisor"
+    },
+    {
+      "Username": "student2",
+      "UserID": 4,
+      "Password": "pwd123",
+      "Type": "student"
+    },
+    {
+      "Username": "teacher2",
+      "UserID": 5,
+      "Password": "pwd123",
+      "Type": "teacher"
+    },
+    {
+      "Username": "supervisor2",
+      "UserID": 6,
+      "Password": "123pwd",
       "Type": "supervisor"
     }
   ]

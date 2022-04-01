@@ -39,10 +39,15 @@ namespace AlumniApp
             data.Rows.Add(r0);
             data.Rows.Add(r1);
             data.Rows.Add(r2);
+            data.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            Label title = new();
-            title.Dock = DockStyle.Fill;
-            title.Text = "Supervisor's information";
+            Label title = new()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Supervisor's Information",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12),
+            };
 
             TableLayoutPanel panel = new();
             panel.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));

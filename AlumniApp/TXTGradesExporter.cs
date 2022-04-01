@@ -19,7 +19,7 @@ namespace AlumniApp
                     tw.Write($"{data.Columns[i].Name}");
                     if (i != data.Columns.Count - 1)
                     {
-                        tw.Write("|");
+                        tw.Write(",");
                     }
                 }
                 tw.WriteLine();

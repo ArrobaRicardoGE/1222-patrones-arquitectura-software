@@ -34,6 +34,7 @@ namespace AlumniApp
             _grades.Columns[2].Name = "Term 2";
             _grades.Columns[3].Name = "Term 3";
             _grades.Columns[4].Name = "Average";
+            _grades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             float total = 0f; 
             foreach (var grade in grades)
@@ -43,11 +44,15 @@ namespace AlumniApp
                 _grades.Rows.Add(r);
                 total += avg; 
             }
-            Label title = new();
-            title.Dock = DockStyle.Fill;
-            title.Text = "Grades";
+            Label title = new()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Grades",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12),
+            };
 
-            Label average = new Label
+            Label average = new()
             {
                 Dock = DockStyle.Fill,
                 Text = "Average: " + (total / grades.Count).ToString("0.00")
@@ -85,10 +90,15 @@ namespace AlumniApp
             data.Rows.Add(r1);
             data.Rows.Add(r2);
             data.Rows.Add(r3);
+            data.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            Label title = new();
-            title.Dock = DockStyle.Fill;
-            title.Text = "Student's information";
+            Label title = new()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Student's Information",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 12),
+            };
 
             TableLayoutPanel panel = new();
             panel.RowStyles.Add(new RowStyle(SizeType.Percent, 20f));
@@ -105,6 +115,7 @@ namespace AlumniApp
             {
                 Text = "Save grades to file...",
                 Size = new Size(100, 30),
+                Font = new Font("Arial", 12),
             };
             b.Click += new EventHandler(DownloadGrades);
 

@@ -18,6 +18,16 @@ namespace AlumniApp
             ClientSize = new Size(width, height);
 
             // Add fields
+            Label title = new()
+            {
+                Dock = DockStyle.Top,
+                Text = "AlumniApp",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Harlow Solid Italic", 32),
+                Padding = new Padding(0, 50, 0, 0),
+                Height = 100,
+            };
+
             var panel = new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.TopDown,
@@ -37,6 +47,7 @@ namespace AlumniApp
             AcceptButton = login; 
 
             SuspendLayout();
+            Controls.Add(title); 
             panel.Controls.Add(username);
             panel.Controls.Add(password);
             panel.WrapContents = false; 

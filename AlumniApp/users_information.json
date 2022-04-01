@@ -3,7 +3,7 @@
     {
       "UserID": 1,
       "Name": "Patrick Mahomes",
-      "Career": "IIA",
+      "Career": "Artificial Intelligence Engineering",
       "BirthYear": 2000,
       "Hometown": "Tyles, Texas"
     },
@@ -20,6 +20,27 @@
       "Career": "",
       "BirthYear": 1959,
       "Hometown": "Jamestown, New York"
+    },
+    {
+      "UserID": 4,
+      "Name": "Justin Herbert",
+      "Career": "Arts",
+      "BirthYear": 1998,
+      "Hometown": "Euguene, Oregon"
+    },
+    {
+      "UserID": 5,
+      "Name": "Andy Reid",
+      "Career": "",
+      "BirthYear": 1958,
+      "Hometown": "Los Angeles, California"
+    },
+    {
+      "UserID": 6,
+      "Name": "Howie Roseman",
+      "Career": "",
+      "BirthYear": 1975,
+      "Hometown": "Brooklyn, New York"
     }
   ]
 }
