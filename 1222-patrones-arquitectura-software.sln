@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSale", "VentaDeComputadoras\ComputerSale.csproj", "{5D106D33-7FA6-4168-B154-83580064CCBC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlumniApp", "AlumniApp\AlumniApp.csproj", "{E0DA5246-5BDF-4816-851B-FDDB2D65C79B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{88AE0AA5-8FD0-4811-9023-218611955C5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{88AE0AA5-8FD0-4811-9023-218611955C5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtherCalculator", "OtherCalculator\OtherCalculator.csproj", "{939BC8C4-2839-41FF-B87F-BDE14081E8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RutasTiendas", "RutasTiendas\RutasTiendas.csproj", "{C05C4D42-416C-4D6C-928E-E4E7D264640F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{939BC8C4-2839-41FF-B87F-BDE14081E8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939BC8C4-2839-41FF-B87F-BDE14081E8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939BC8C4-2839-41FF-B87F-BDE14081E8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05C4D42-416C-4D6C-928E-E4E7D264640F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05C4D42-416C-4D6C-928E-E4E7D264640F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05C4D42-416C-4D6C-928E-E4E7D264640F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05C4D42-416C-4D6C-928E-E4E7D264640F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
