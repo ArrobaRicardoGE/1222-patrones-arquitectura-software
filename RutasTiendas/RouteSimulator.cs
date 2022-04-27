@@ -56,8 +56,8 @@ namespace RutasTiendas
             foreach (var product in y.products)
                 revy += product.price * product.quantity;
             if (revx == revy) return 0;
-            if (revx > revy) return 1;
-            return -1; 
+            if (revx > revy) return -1;
+            return 1; 
         }
     }
 }

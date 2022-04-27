@@ -71,6 +71,26 @@ namespace RutasTiendas
             QRCodeGenerator qr = new IronBarCodeAdapter();
             qr.GenerateQR(this, path + $"\\order_{idStore.ToString().PadLeft(2, '0')}");
         }
+
+        public int GetQuantityForID(int productID)
+        {
+            int ans = 0; 
+            foreach(var product in products)
+            {
+                if (product.idProduct == productID) ans += product.quantity; 
+            }
+            return ans; 
+        }
+
+        public float GetRevenue()
+        {
+            float revenue = 0f;
+            foreach (var product in products)
+            {
+                revenue += product.quantity * product.price;
+            }
+            return revenue; 
+        }
     }
 
     public class Product

@@ -32,6 +32,7 @@ namespace RutasTiendas
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // button1
@@ -60,8 +61,9 @@ namespace RutasTiendas
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(124, 35);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Get Route";
+            this.button3.Text = "Create Route";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // IndexForm
             // 
@@ -83,6 +85,7 @@ namespace RutasTiendas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
