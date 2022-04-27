@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace RutasTiendas
 {
-    public interface QRCodeGenerator
+    static class OrderInvoker
     {
-        public void GenerateQR(Order data, string filename);
-        public string ReadQR(string filename); 
+        public static void Execute(OrderCommand cmd)
+        {
+            cmd.Execute(); 
+        }
     }
 }

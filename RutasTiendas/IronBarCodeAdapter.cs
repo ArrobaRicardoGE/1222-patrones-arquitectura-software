@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IronBarCode;
+using System.Text.Json; 
 
 namespace RutasTiendas
 {
-    class IronBarCodeAdapter : QRCodeGenerator
+    public class IronBarCodeAdapter : QRCodeGenerator
     {
-        public override void GenerateQR(string data, string filename)
+        public void GenerateQR(Order data, string filename)
         {
-            BarcodeWriter.CreateBarcode(data, BarcodeWriterEncoding.QRCode).SaveAsJpeg($"{filename}.jpg");
+            BarcodeWriter.CreateBarcode(JsonSerializer.Serialize(data), BarcodeWriterEncoding.QRCode).SaveAsJpeg($"{filename}.jpg");
         }
 
-        public override string ReadQR(string path)
+        public string ReadQR(string filename)
         {
-            BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode(path);
+            BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode(filename);
             if (Result != null) return Result.Text;
             throw new Exception("Invalid QR code"); 
         }
