@@ -44,8 +44,8 @@ namespace RutasTiendas
             o.storeName = textBox1.Text;
             o.idStore = lastID + 1;
 
-            QRCodeGenerator qr = new IronBarCodeAdapter();
-            qr.GenerateQR(o, path + $"\\order_{o.idStore.ToString().PadLeft(2, '0')}");
+            o.ToQR(path); 
+
             MessageBox.Show("Store registered. QR code saved in: " + path);
             Close(); 
         }

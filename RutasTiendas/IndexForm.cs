@@ -67,5 +67,11 @@ namespace RutasTiendas
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RegisterOrderForm form = new();
+            form.Show(); 
+        }
     }
 }

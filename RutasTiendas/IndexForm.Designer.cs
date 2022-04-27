@@ -52,6 +52,7 @@ namespace RutasTiendas
             this.button2.TabIndex = 1;
             this.button2.Text = "Register order";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -62,7 +63,7 @@ namespace RutasTiendas
             this.button3.Text = "Get Route";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +71,7 @@ namespace RutasTiendas
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "IndexForm";
             this.Text = "Store";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

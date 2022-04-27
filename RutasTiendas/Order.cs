@@ -28,18 +28,28 @@ namespace RutasTiendas
 
         public void AddProduct(int id, string name, float price, int quantity)
         {
+            for(int i = 0; i < products.Count; i++)
+            {
+                if (products[i].idProduct == id && products[i].price == price)
+                {
+                    products[i].quantity = quantity;
+                    return; 
+                }
+            }
             products.Add(new Product(id, name, price, quantity));
         }
         
         public void RemoveProduct(int id, float price, int quantity)
         {
-            foreach (var product in products)
+            for(int i = 0; i < products.Count; i++)
             {
-                if(product.idProduct == id && product.price == price && product.quantity == quantity)
+                if(products[i].idProduct == id && products[i].price == price)
                 {
-                    products.Remove(product);
+                    products[i].quantity -= quantity;
+                    if (products[i].quantity == 0) products.RemoveAt(i);
                     return; 
                 }
+                     
             }
         }
 
@@ -55,16 +65,22 @@ namespace RutasTiendas
             _history.Pop();
             cmd.Undo(); 
         }
+
+        public void ToQR(string path)
+        {
+            QRCodeGenerator qr = new IronBarCodeAdapter();
+            qr.GenerateQR(this, path + $"\\order_{idStore.ToString().PadLeft(2, '0')}");
+        }
     }
 
     public class Product
     {
-        public Product(int _id, string _name, float _price, int _quantity)
+        public Product(int idProduct, string name, float price, int quantity)
         {
-            idProduct = _id;
-            name = _name;
-            price = _price;
-            quantity = _quantity;
+            this.idProduct = idProduct;
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
         }
         public int idProduct { get; set; }
         public string name { get; set; }

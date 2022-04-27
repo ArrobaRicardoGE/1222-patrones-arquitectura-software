@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IronBarCode;
-using System.Text.Json; 
+using System.Text.Json;
 
 namespace RutasTiendas
 {
@@ -15,11 +15,11 @@ namespace RutasTiendas
             BarcodeWriter.CreateBarcode(JsonSerializer.Serialize(data), BarcodeWriterEncoding.QRCode).SaveAsJpeg($"{filename}.jpg");
         }
 
-        public string ReadQR(string filename)
+        public Order ReadQR(string filename)
         {
             BarcodeResult Result = BarcodeReader.QuicklyReadOneBarcode(filename);
-            if (Result != null) return Result.Text;
-            throw new Exception("Invalid QR code"); 
+            if (Result != null) return JsonSerializer.Deserialize<Order>(Result.Text);
+            throw new Exception("Invalid QR code");
         }
     }
 }

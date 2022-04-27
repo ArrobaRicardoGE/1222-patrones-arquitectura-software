@@ -9,6 +9,6 @@ namespace RutasTiendas
     public interface QRCodeGenerator
     {
         public void GenerateQR(Order data, string filename);
-        public string ReadQR(string filename); 
+        public Order ReadQR(string filename); 
     }
 }
