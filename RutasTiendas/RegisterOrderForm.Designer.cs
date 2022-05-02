@@ -157,7 +157,7 @@ namespace RutasTiendas
             this.button3.TabIndex = 9;
             this.button3.Text = "Undo";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button2_Click);
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // RegisterOrderForm
             // 

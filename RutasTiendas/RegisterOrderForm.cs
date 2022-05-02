@@ -12,7 +12,8 @@ namespace RutasTiendas
 {
     public partial class RegisterOrderForm : Form
     {
-        private Order o; 
+        private Order o;
+        private string originalFilename;
         public RegisterOrderForm()
         {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace RutasTiendas
             try
             {
                 QRCodeGenerator qr = new IronBarCodeAdapter();
-                o = qr.ReadQR(file.FileName);
+                originalFilename = file.FileName; 
+                o = qr.ReadQR(originalFilename);
                 label2.Text = $"Store ID: {o.idStore}";
                 label1.Text = $"Name: {o.storeName}";
                 numericUpDown1.Enabled = true;
@@ -58,10 +60,19 @@ namespace RutasTiendas
             FolderBrowserDialog folder = new();
             DialogResult result = folder.ShowDialog();
             if (result != DialogResult.OK) return;
-            o.ToQR(folder.SelectedPath);
+            OrderCommand toQR = new CreateQRCommand(o, folder.SelectedPath, originalFilename);
+            OrderInvoker.Execute(toQR); 
 
-            MessageBox.Show("Order sucessfully created"); 
+            MessageBox.Show("Order sucessfully created");
 
+            button3.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            o.Undo();
+            MessageBox.Show("Order reverted");
+            button3.Enabled = false;  
         }
     }
 }
