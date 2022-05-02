@@ -12,18 +12,18 @@ namespace RutasTiendas
         public string storeName { get; set; }
         public List<Product> products { get; set; }
 
-        private Stack<OrderCommand> _history;
+        public Stack<OrderCommand> history;
 
         public Order()
         {
             products = new List<Product>();
-            _history = new Stack<OrderCommand>();
+            history = new Stack<OrderCommand>();
         }
 
         public void ResetOrder()
         {
             products = new List<Product>();
-            _history = new Stack<OrderCommand>();
+            history = new Stack<OrderCommand>();
         }
 
         public void AddProduct(int id, string name, float price, int quantity)
@@ -55,21 +55,7 @@ namespace RutasTiendas
 
         public void AddCommand(OrderCommand cmd)
         {
-            _history.Push(cmd);
-        }
-
-        public void Undo()
-        {
-            var cmd = _history.Peek();
-            if (cmd == null) return;
-            _history.Pop();
-            cmd.Undo(); 
-        }
-
-        public void ToQR(string path)
-        {
-            QRCodeGenerator qr = new IronBarCodeAdapter();
-            qr.GenerateQR(this, path + $"\\order_{idStore.ToString().PadLeft(2, '0')}");
+            history.Push(cmd);
         }
 
         public int GetQuantityForID(int productID)

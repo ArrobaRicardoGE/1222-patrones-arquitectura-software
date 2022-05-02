@@ -44,7 +44,8 @@ namespace RutasTiendas
             o.storeName = textBox1.Text;
             o.idStore = lastID + 1;
 
-            o.ToQR(path); 
+            OrderCommand cmd = new CreateQRCommand(o, path);
+            OrderInvoker.Execute(cmd); 
 
             MessageBox.Show("Store registered. QR code saved in: " + path);
             Close(); 

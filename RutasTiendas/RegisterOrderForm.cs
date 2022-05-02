@@ -70,7 +70,8 @@ namespace RutasTiendas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            o.Undo();
+            OrderCommand cmd = new UndoCommand(o);
+            OrderInvoker.Execute(cmd); 
             MessageBox.Show("Order reverted");
             button3.Enabled = false;  
         }

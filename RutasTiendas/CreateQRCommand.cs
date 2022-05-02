@@ -11,7 +11,7 @@ namespace RutasTiendas
         private QRCodeGenerator qr;
         private string path, originalFilename;
         private Order backup; 
-        public CreateQRCommand(Order _order, string _path, string _originalFilename)
+        public CreateQRCommand(Order _order, string _path, string _originalFilename = null)
         {
             qr = new IronBarCodeAdapter();
             path = _path;
@@ -21,7 +21,8 @@ namespace RutasTiendas
         }
         public override void Execute()
         {
-            backup = qr.ReadQR(originalFilename);
+            if(originalFilename != null)
+                backup = qr.ReadQR(originalFilename);
             qr.GenerateQR(order, path + $"\\order_{order.idStore.ToString().PadLeft(2, '0')}");
             order.AddCommand(this);
         }

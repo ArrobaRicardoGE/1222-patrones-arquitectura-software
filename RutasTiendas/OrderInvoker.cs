@@ -12,10 +12,5 @@ namespace RutasTiendas
         {
             cmd.Execute(); 
         }
-
-        public static void Undo(OrderCommand cmd)
-        {
-            cmd.Undo(); 
-        }
     }
 }
