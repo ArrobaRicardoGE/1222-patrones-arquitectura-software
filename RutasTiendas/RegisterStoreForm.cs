@@ -48,6 +48,8 @@ namespace RutasTiendas
             OrderInvoker.Execute(cmd); 
 
             MessageBox.Show("Store registered. QR code saved in: " + path);
+            var logger = ApplicationLogger.GetInstance();
+            logger.LogEvent($"Store \"{o.storeName}\" (ID {o.idStore}) registered. QR code saved in: {path}"); 
             Close(); 
         }
     }

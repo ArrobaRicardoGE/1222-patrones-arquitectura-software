@@ -12,10 +12,12 @@ namespace RutasTiendas
 {
     public partial class CreateRouteForm : Form
     {
-        RouteSimulator rs; 
+        private RouteSimulator rs;
+        private Logger logger; 
         public CreateRouteForm()
         {
             InitializeComponent();
+            logger = ApplicationLogger.GetInstance(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,7 +53,8 @@ namespace RutasTiendas
             numericUpDown1.Enabled = true;
             numericUpDown2.Enabled = true;
             numericUpDown3.Enabled = true;
-            button4.Enabled = false; 
+            button4.Enabled = false;
+            logger.LogEvent($"Simulation started for {folder.FileNames.Length} stores"); 
         }
 
         private void AddRegisterToGrid(Order o, int priority = 0)
@@ -65,18 +68,21 @@ namespace RutasTiendas
         {
             label6.Text = $"Units: {numericUpDown1.Value * 95}";
             rs.SetTruckQuantity(1, (int)numericUpDown1.Value * 95);
+            logger.LogEvent($"Added {numericUpDown1.Value} frozen vegetables trucks"); 
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             label8.Text = $"Units: {numericUpDown2.Value * 120}";
             rs.SetTruckQuantity(2, (int)numericUpDown2.Value * 120);
+            logger.LogEvent($"Added {numericUpDown2.Value} soda trucks");
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             label10.Text = $"Units: {numericUpDown3.Value * 270}";
             rs.SetTruckQuantity(3, (int)numericUpDown3.Value * 270);
+            logger.LogEvent($"Added {numericUpDown3.Value} bread trucks");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,11 +90,15 @@ namespace RutasTiendas
             try
             {
                 var rem = rs.SimulateRoute();
-                MessageBox.Show($"Simulation ran successfully. Remainder products:\nFrozen vegetables: {rem[1]}\nSoda: {rem[2]}\nBread: {rem[3]}"); 
+                string msg = $"Simulation ran successfully. Remainder products:\nFrozen vegetables: {rem[1]}\nSoda: {rem[2]}\nBread: {rem[3]}";
+                MessageBox.Show(msg);
+                logger.LogEvent(msg);
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Not enough supply for product {ex.Message}, try again"); 
+                string msg = $"Simulation failed. Not enough supply for product {ex.Message}, try again"; 
+                MessageBox.Show(msg);
+                logger.LogEvent(msg); 
             }
         }
 
@@ -101,11 +111,14 @@ namespace RutasTiendas
                 for(int i = 0; i < orders.Count; i++)
                     AddRegisterToGrid(orders[i], i + 1);
                 button4.Enabled = true;
-                MessageBox.Show("Route created"); 
+                MessageBox.Show("Route created");
+                logger.LogEvent("Route created"); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Not enough supply for product {ex.Message}, try again");
+                string msg = $"Unable to create route. Not enough supply for product {ex.Message}, try again";
+                MessageBox.Show(msg);
+                logger.LogEvent(msg); 
             }
         }
 
@@ -117,7 +130,9 @@ namespace RutasTiendas
 
             TXTExporter.SaveToFile(dataGridView1, folder.SelectedPath + "\\route");
 
-            MessageBox.Show($"Route saved in {folder.SelectedPath}\\route.csv");
+            string msg = $"Route saved in {folder.SelectedPath}\\route.csv"; 
+            MessageBox.Show(msg);
+            logger.LogEvent(msg); 
         }
     }
 }

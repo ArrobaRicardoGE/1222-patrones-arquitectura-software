@@ -14,9 +14,11 @@ namespace RutasTiendas
     {
         private Order o;
         private string originalFilename;
+        private Logger logger; 
         public RegisterOrderForm()
         {
             InitializeComponent();
+            logger = ApplicationLogger.GetInstance(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,11 +39,13 @@ namespace RutasTiendas
                 numericUpDown1.Enabled = true;
                 numericUpDown2.Enabled = true;
                 numericUpDown3.Enabled = true;
-                button2.Enabled = true; 
+                button2.Enabled = true;
+                logger.LogEvent($"Create order for store \"{o.storeName}\" (ID {o.idStore})");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.LogEvent($"ERROR: {ex.Message}"); 
             }
         }
 
@@ -64,6 +68,7 @@ namespace RutasTiendas
             OrderInvoker.Execute(toQR); 
 
             MessageBox.Show("Order sucessfully created");
+            logger.LogEvent($"Finalize order for store \"{o.storeName}\" (ID {o.idStore})");
 
             button3.Enabled = true;
         }
@@ -73,7 +78,23 @@ namespace RutasTiendas
             OrderCommand cmd = new UndoCommand(o);
             OrderInvoker.Execute(cmd); 
             MessageBox.Show("Order reverted");
+            logger.LogEvent($"Revert order for store \"{o.storeName}\" (ID {o.idStore})");
             button3.Enabled = false;  
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            logger.LogEvent($"Changed frozen vegetables amount for new order to {numericUpDown1.Value}"); 
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            logger.LogEvent($"Changed sodas amount for new order to {numericUpDown2.Value}");
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            logger.LogEvent($"Changed bread amount for new order to {numericUpDown3.Value}");
         }
     }
 }

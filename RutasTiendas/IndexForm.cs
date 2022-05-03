@@ -24,6 +24,8 @@ namespace RutasTiendas
                 ReadOnly = true,
                 Size = new Size(300, 200),
                 Dock = DockStyle.Fill,
+                ScrollBars = ScrollBars.Both,
+                WordWrap = false,
             };
             dataGridLogger = new()
             {
@@ -32,6 +34,7 @@ namespace RutasTiendas
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
                 Dock = DockStyle.Fill,
                 Size = new Size(300, 200),
+                ScrollBars = ScrollBars.Both,
             };
             dataGridLogger.Columns[0].Name = "Time";
             dataGridLogger.Columns[1].Name = "Event";
@@ -40,8 +43,6 @@ namespace RutasTiendas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var logger = ApplicationLogger.GetInstance();
-            logger.LogEvent("hola"); 
             RegisterStoreForm form = new();
             form.Show(); 
         }

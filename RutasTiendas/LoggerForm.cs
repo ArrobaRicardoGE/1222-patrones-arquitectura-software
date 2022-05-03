@@ -33,19 +33,25 @@ namespace RutasTiendas
 
             ApplicationLogger.AddFileSupport(file.FileName);
 
-            MessageBox.Show("Sending log to file"); 
+            MessageBox.Show("Sending log to file");
+            var logger = ApplicationLogger.GetInstance();
+            logger.LogEvent($"Send log to file: {file.FileName}"); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ApplicationLogger.AddDataGridSupport(grid);
             MessageBox.Show("Sending log to data grid");
+            var logger = ApplicationLogger.GetInstance();
+            logger.LogEvent("Send log to data grid"); 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             ApplicationLogger.AddTextBoxSupport(box);
             MessageBox.Show("Sending log to text box");
+            var logger = ApplicationLogger.GetInstance();
+            logger.LogEvent("Send log to text box"); 
         }
 
         private void LoggerForm_FormClosing(object sender, FormClosingEventArgs e)
