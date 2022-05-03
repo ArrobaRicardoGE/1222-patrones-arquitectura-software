@@ -12,13 +12,36 @@ namespace RutasTiendas
 {
     public partial class IndexForm : Form
     {
+        public TextBox textBoxLogger;
+        public DataGridView dataGridLogger;
+        private LoggerForm lf; 
         public IndexForm()
         {
             InitializeComponent();
+            textBoxLogger = new()
+            {
+                Multiline = true,
+                ReadOnly = true,
+                Size = new Size(300, 200),
+                Dock = DockStyle.Fill,
+            };
+            dataGridLogger = new()
+            {
+                ReadOnly = true,
+                ColumnCount = 2,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                Dock = DockStyle.Fill,
+                Size = new Size(300, 200),
+            };
+            dataGridLogger.Columns[0].Name = "Time";
+            dataGridLogger.Columns[1].Name = "Event";
+            lf = new(dataGridLogger, textBoxLogger);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var logger = ApplicationLogger.GetInstance();
+            logger.LogEvent("hola"); 
             RegisterStoreForm form = new();
             form.Show(); 
         }
@@ -38,6 +61,11 @@ namespace RutasTiendas
         {
             CreateRouteForm form = new();
             form.Show(); 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            lf.Show(); 
         }
     }
 }
